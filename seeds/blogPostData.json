@@ -1,10 +1,12 @@
 [
     {
-        "name": "Blog Post Test",
-        "description": "This blog post was created for testing purposes"
+        "title": "Blog Post Test",
+        "content": "This blog post was created for testing purposes",
+        "author": "John Doe"
     },
     {
-        "name": "An additional Blog Post Test",
-        "description": "Here is an additional test post"
+        "title": "An additional Blog Post Test",
+        "content": "Here is an additional test post",
+        "author": "John Doe"
     }
 ]
