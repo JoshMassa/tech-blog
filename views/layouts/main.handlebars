@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tech Blog</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
     <div>
         <header>
-            <nav>
+            <nav id="navbar">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a class="navbarEl" href="/">Home</a></li>
+                    <li><a class="navbarEl" href="/dashboard">Dashboard</a></li>
                     {{#if loggedIn}}
-                        <li><a href="/logout">Logout</a></li>
+                        <li><a class="navbarEl" href="/logout">Logout</a></li>
                     {{else}}
-                        <li><a href="/login">Login</a></li>
+                        <li><a class="navbarEl" href="/login">Login</a></li>
                     {{/if}}
-                    <p>{{this.title}}</p>
+                    <p id="title">{{this.title}}</p>
                 </ul>
             </nav>
         </header>

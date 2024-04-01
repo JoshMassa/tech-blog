@@ -1,5 +1,9 @@
-<div class="text-center">
-    <h2>{{title}}</h2>
-    <p>{{content}}</p>
-    <p>Posted By {{author}} on {{format_date this.createdAt}} at {{format_time this.createdAt}}</p>
+<div class="row mb-4">
+    <div class="post col-md-5">
+        <h2 id="blogHeader">
+            <a id="blog_title" href="/blogPost/{{id}}">{{title}}</a>
+            <p id="dateTime">Posted by {{user.name}} on {{format_date this.createdAt}} at {{format_time this.createdAt}}</p>
+        </h2>
+        <p id="content">{{content}}</p>
+    </div>
 </div>
