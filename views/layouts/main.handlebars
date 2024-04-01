@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Tech Blog</title>
 </head>
+
 <body>
+    <div>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    {{#if loggedIn}}
+                        <li><a href="/logout">Logout</a></li>
+                    {{else}}
+                        <li><a href="/login">Login</a></li>
+                    {{/if}}
+                    <p>{{this.title}}</p>
+                </ul>
+            </nav>
+        </header>
+    </div>
     {{{body}}}
 </body>
 </html>

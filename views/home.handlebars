@@ -1,9 +1,10 @@
 {{#each blogPosts as |blogPost|}}
 <div class="row mb-4">
-    <div class="col-md-5">
+    <div class="post col-md-5">
         <h2>
-            <a href="/blogPost/{{this.id}}">{{this.title}}</a>
+            <a href="/blogPost/{{this.id}}">{{this.title}}{{format_date this.createdAt}}{{format_time this.createdAt}}</a>
         </h2>
+        <p>{{this.content}}</p>
     </div>
 </div>
 {{/each}}
