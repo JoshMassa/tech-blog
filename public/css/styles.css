@@ -70,3 +70,8 @@ li {
     font-weight: 900;
     box-shadow: 5px 5px var(--offwhite);
 }
+
+#login,
+#logout {
+    margin-left: 30px;
+}

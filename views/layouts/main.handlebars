@@ -15,10 +15,10 @@
                 <ul>
                     <li><a class="navbarEl" href="/">Home</a></li>
                     <li><a class="navbarEl" href="/dashboard">Dashboard</a></li>
-                    {{#if loggedIn}}
-                        <li><a class="navbarEl" href="/logout">Logout</a></li>
+                    {{#if logged_in}}
+                        <a class="navbarEl" id="logout">Logout</a>
                     {{else}}
-                        <li><a class="navbarEl" href="/login">Login</a></li>
+                        <a class="navbarEl" id="login" href="/login">Login</a>
                     {{/if}}
                     <p id="title">{{this.title}}</p>
                 </ul>
