@@ -30,14 +30,14 @@
     display: inline-flex;
     color: var(--offwhite);
     font-size: 12px;
-    align-items: center;
+    padding-right: 10px;
 }
 
 #blogHeader {
     display: flex;
     background-color: black;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 0px 0px 10px;
 }
 
 body {
@@ -48,7 +48,6 @@ body {
 #navbar {
     display: flex;
     background-color: black;
-    padding-bottom: 15px;
 }
 
 .navbarEl {

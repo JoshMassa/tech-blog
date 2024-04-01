@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { BlogPost, User } = require('../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -51,6 +51,10 @@ router.get('/blogpost/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/login', (req, res) => {
+    res.render('login');
 });
 
 module.exports = router;
