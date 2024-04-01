@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Blog Post Test",
+        "description": "This blog post was created for testing purposes"
+    },
+    {
+        "name": "An additional Blog Post Test",
+        "description": "Here is an additional test post"
+    }
+]
