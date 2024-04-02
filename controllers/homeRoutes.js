@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { BlogPost, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -31,6 +31,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Find a specific blogpost via its id
 router.get('/blogpost/:id', async (req, res) => {
     try {
         const blogPostData = await BlogPost.findByPk(req.params.id, {
@@ -42,8 +43,10 @@ router.get('/blogpost/:id', async (req, res) => {
             ],
         });
 
+        // Serialize blogPostData
         const blogPost = blogPostData.get({ plain: true });
 
+        // Pass serialized data and session flag into template
         res.render('blogPost', {
             ...blogPost,
             logged_in: req.session.logged_in
@@ -53,12 +56,37 @@ router.get('/blogpost/:id', async (req, res) => {
     }
 });
 
-router.get('/login', (req, res) => {
-    res.render('login');
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: BlogPost }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('dashboard', {
+            ...user,
+            logged_in: true,
+            title: 'Your Dashboard'
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
+// Retrieve login page
+router.get('/login', (req, res) => {
+    res.render('login', {
+        title: 'Login'
+    });
+});
+
+// Retrieve signup page
 router.get('/signup', (req, res) => {
-    res.render('signup');
+    res.render('signup', {
+        title: 'Sign Up'
+    });
 });
 
 module.exports = router;

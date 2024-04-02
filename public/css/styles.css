@@ -76,8 +76,15 @@ li {
     margin-left: 30px;
 }
 
-#loginHeader {
+#loginHeader,
+#signupHeader {
+    display: flex;
+    min-height: 30px;
     background-color: black;
+    font-size: 18px;
+    align-items: center;
+    color: var(--seafoam);
+    padding-left: 1.7rem;
 }
 
 .container {
@@ -100,7 +107,39 @@ li {
     padding-left: 5px;
 }
 
-#login-form-button {
+#login-form-button,
+#signup-form-button {
     width: 95%;
-    margin: 10px 0px;
+    margin: 10px 0px 5px 0px;
+}
+
+#newPostBtn {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 30rem;
+}
+
+#name {
+    text-align: center;
+}
+
+#signupInstead,
+#loginInstead {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 100px;
+}
+
+#noAccount,
+#hasAccount {
+    display: inline-flex;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#form-adjust {
+    margin-top: 20%;
 }
