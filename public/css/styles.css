@@ -85,3 +85,22 @@ li {
     border: 2px solid black;
     margin: 20px auto;
 }
+
+.container input {
+    width: 95%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.form-input {
+    padding-left: 5px;
+}
+
+#login-form-button {
+    width: 95%;
+    margin: 10px 0px;
+}
