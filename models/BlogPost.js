@@ -12,15 +12,11 @@ BlogPost.init(
             autoIncrement: true
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(30),
             allowNull: false
         },
         content: {
             type: DataTypes.STRING,
-        },
-        author: {
-            type: DataTypes.STRING,
-            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,

@@ -43,6 +43,7 @@
 body {
     background-color: var(--seafoam);
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 #navbar {
@@ -77,7 +78,8 @@ li {
 }
 
 #loginHeader,
-#signupHeader {
+#signupHeader,
+#newPostHeader {
     display: flex;
     min-height: 30px;
     background-color: black;
@@ -108,7 +110,8 @@ li {
 }
 
 #login-form-button,
-#signup-form-button {
+#signup-form-button,
+#create-post-button {
     width: 95%;
     margin: 10px 0px 5px 0px;
 }
@@ -118,7 +121,8 @@ li {
     justify-content: center;
     width: 150px;
     margin: 0 auto;
-    margin-top: 30rem;
+    margin-top: 10rem;
+    margin-bottom: 30px;
 }
 
 #name {
@@ -141,5 +145,26 @@ li {
 }
 
 #form-adjust {
-    margin-top: 20%;
+    margin-top: 5%;
+}
+
+#post-title {
+    display: block;
+}
+
+#create-post-button {
+    margin-bottom: 20px;
+}
+
+#new-post-content {
+    height: 75px;
+}
+
+textarea {
+    resize: none;
+    width: 95%;
+}
+
+.hidden {
+    display: none;
 }

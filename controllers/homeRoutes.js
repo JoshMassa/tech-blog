@@ -64,9 +64,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
         });
 
         const user = userData.get({ plain: true });
-
         res.render('dashboard', {
-            ...user,
+            id: user.id,
+            name: user.name,
+            blogPosts: user.blogposts,
             logged_in: true,
             title: 'Your Dashboard'
         });
