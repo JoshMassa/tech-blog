@@ -18,7 +18,15 @@ User.init(
         },
         username: {
             type: DataTypes.STRING(30),
-            allowNull: false
+            allowNull: false,
+            unique: true,
+            validate: {
+                usernameRestrictions(username) {
+                    if (!/^[\w]+$/.test(username)) {
+                        throw new Error('Username can only contain letters, numbers, and underscores');
+                    }
+                }
+            }
         },
         email: {
             type: DataTypes.STRING,
@@ -31,6 +39,9 @@ User.init(
         password: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [8, 32],
+            },
         },
     },
     {

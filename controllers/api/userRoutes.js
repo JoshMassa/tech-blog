@@ -2,16 +2,40 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
-    console.log(req.body)
     try {
+        // Attempt to create a new user
         const userData = await User.create(req.body);
+        // If successful, save session and send response
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             res.status(200).json(userData);
         });
-    } catch (err) {
-        res.status(500).json(err);
+    } catch (error) {
+        // If an error occurs during user creation
+        if (error.errors) {
+            // Check if the error is related to the username validation rule
+            const usernameError = error.errors.find(err => err.path === 'username');
+            if (usernameError && usernameError.validatorKey === 'usernameRestrictions') {
+                // Handle the specific case of a username validation error
+                res.status(400).json({ message: 'Username can only contain letters, numbers, and underscores.' });
+                // Return to  avoid executing other error handling logic
+                return;
+            }
+            // Check if the error is related to the password length validation rule
+            const passwordError = error.errors.find(err => err.path === 'password');
+            if (passwordError && passwordError.validatorKey === 'len') {
+                res.status(400).json({ message: 'Password must be between 8 and 32 characters long.' });
+                // Return to avoid executing other error handling logic
+                return;
+            }
+        }
+        // If it's not a username or password validation error, handle other errors. This error handler verifies that an email is unique, and if not will display the following error
+        if (error.errors && error.errors[0].path === 'email' && error.errors[0].type === 'unique violation') {
+            res.status(400).json({ message: 'Email address is already in use.' });
+        } else {
+            res.status(500).json('An error occured while creating your account. Please try again.');
+        }
     }
 });
 
