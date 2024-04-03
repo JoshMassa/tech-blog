@@ -5,7 +5,6 @@ router.post('/', async (req, res) => {
     console.log(req.body)
     try {
         const userData = await User.create(req.body);
-        console.log(userData.id)
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -19,17 +18,17 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         // Check if the provided email matches a user in the database
-        const userData = await User.findOne({ where: { email: req.body.email } });
+        const userData = await User.findOne({ where: { username: req.body.username } });
 
         if (!userData) {
-            res.status(401).json({ message: 'Incorrect email or password' });
+            res.status(401).json({ message: 'Incorrect username or password' });
             return;
         }
         // Check if the provided password matches the user's password in the database
         const validPassword = await userData.checkPassword(req.body.password);
 
         if (!validPassword) {
-            res.status(401).json({ message: 'Incorrect email or password' });
+            res.status(401).json({ message: 'Incorrect username or password' });
             return;
         }
 

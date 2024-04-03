@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ],
         });
@@ -38,7 +38,7 @@ router.get('/blogpost/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']
+                    attributes: ['username']
                 },
             ],
         });
@@ -66,7 +66,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         const user = userData.get({ plain: true });
         res.render('dashboard', {
             id: user.id,
-            name: user.name,
+            username: user.username,
             blogPosts: user.blogposts,
             logged_in: true,
             title: 'Your Dashboard'
