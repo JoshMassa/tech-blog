@@ -3,7 +3,7 @@
     --seafoam: rgb(207, 222, 207);
 }
 
-* {
+*, p {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -31,6 +31,7 @@
     color: var(--offwhite);
     font-size: 12px;
     padding-right: 10px;
+    padding-bottom: 15px;
 }
 
 #blogHeader {
@@ -79,8 +80,7 @@ li {
 
 #loginHeader,
 #signupHeader,
-#newPostHeader,
-#commentHeader {
+#newPostHeader {
     display: flex;
     min-height: 30px;
     background-color: black;
@@ -179,4 +179,39 @@ textarea {
     margin-left: 1.15rem;
     color: var(--seafoam);
     box-shadow: 5px 5px var(--offwhite);
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+#commentContent {
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#commentHeader {
+    padding-left: 10px;
+    background-color: black;
+}
+
+#comment-link {
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#comment-link:hover {
+    color: blue;
 }

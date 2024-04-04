@@ -1,36 +1,33 @@
-<div>
-    <div class="post">
-        <h2 id="blogHeader">
-            <a id="blog_title" href="/blogPost/{{id}}">{{title}}</a>
-            <p id="dateTime">Posted by {{user.username}} on {{format_date this.createdAt}} at {{format_time this.createdAt}}</p>
-        </h2>
-        <p id="content">{{content}}</p>
-        <div id="comment-container">
-            {{#if comments}}
-                <ul>
-                    {{#each comments as |comment|}}
-                        <li>{{comment.content}}</li>
-                    {{/each}}
-                </ul>
-            {{else}}
-                <p>No comments yet.</p>
-            {{/if}}
-        </div>
-
-    {{!-- Add clickable "Comment" text that, when clicked, allows a user to add a comment to that post --}}
-    {{#if specificPost}}
-        <a href="#" id="comment-link">Comment</a>
-        <form class="form comment-form hidden" id="comment-form">
-            <div class="form-group">
-                <label for="comment">Comment</label>
-                <textarea class="form-input" rows="5" type="text" id="comment"></textarea>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-dark" id="comment-form-button" type="submit">Submit</button>
-            </div>
-        </form>
-    {{/if}}
-    </div>
+<div class="post">
+    <h2 id="blogHeader">
+        <a id="blog_title" href="/blogPost/{{id}}">{{title}}</a>
+        <p id="dateTime">Posted by {{user.username}} on {{format_date this.createdAt}} at {{format_time this.createdAt}}</p>
+    </h2>
+    <p id="content">{{content}}</p>
+    <a href="#" id="comment-link">Comment</a>
 </div>
+{{#if comments}}
+    {{#each comments as |comment|}}
+        <div class="comment-container">
+            <h2 id="commentHeader">
+                <p id="dateTime">Posted by {{user.username}} on {{format_date this.createdAt}} at {{format_time this.createdAt}}</p>
+            </h2>
+            <p id="commentContent">{{comment.content}}</p>
+        </div>
+    {{/each}}
+{{/if}}
+
+{{!-- Add clickable "Comment" text that, when clicked, allows a user to add a comment to that post --}}
+{{#if specificPost}}
+    <form class="form comment-form hidden" id="comment-form">
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea class="form-input" rows="5" type="text" id="comment"></textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-dark" id="comment-form-button" type="submit">Submit</button>
+        </div>
+    </form>
+{{/if}}
 
 <script src="/js/comment.js"></script>
