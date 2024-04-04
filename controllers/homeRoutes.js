@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { BlogPost, User } = require('../models');
+const { BlogPost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -40,8 +40,16 @@ router.get('/blogpost/:id', async (req, res) => {
                     model: User,
                     attributes: ['username']
                 },
+                {
+                    model: Comment,
+                    include: [User]
+                }
             ],
         });
+
+        if (!blogPostData) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
 
         // Serialize blogPostData
         const blogPost = blogPostData.get({ plain: true });
@@ -49,6 +57,7 @@ router.get('/blogpost/:id', async (req, res) => {
         // Pass serialized data and session flag into template
         res.render('blogPost', {
             ...blogPost,
+            specificPost: true,
             logged_in: req.session.logged_in
         });
     } catch (err) {

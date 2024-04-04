@@ -1,0 +1,14 @@
+<div id='form-adjust' class="container">
+  <div class="row">
+      <h2 id="commentHeader"></h2>
+      <div class="comments">
+        {{#each comments as |comment|}}
+        <div class="comment">
+            <p>{{content}}</p>
+        </div>
+        {{/each}}
+      </div>
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>

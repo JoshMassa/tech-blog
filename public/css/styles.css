@@ -79,7 +79,8 @@ li {
 
 #loginHeader,
 #signupHeader,
-#newPostHeader {
+#newPostHeader,
+#commentHeader {
     display: flex;
     min-height: 30px;
     background-color: black;
@@ -111,7 +112,8 @@ li {
 
 #login-form-button,
 #signup-form-button,
-#create-post-button {
+#create-post-button,
+#comment-form-button {
     width: 95%;
     margin: 10px 0px 5px 0px;
 }
