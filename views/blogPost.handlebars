@@ -4,7 +4,10 @@
         <p id="dateTime">Posted by {{user.username}} on {{format_date this.createdAt}} at {{format_time this.createdAt}}</p>
     </h2>
     <p id="content">{{content}}</p>
+    <div id="options-container">
     <a href="#" id="comment-link">Comment</a>
+    <a href="#" id="update-post-link">Update Post</a>
+    </div>
 </div>
 {{#if comments}}
     {{#each comments as |comment|}}

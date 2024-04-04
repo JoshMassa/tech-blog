@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             // Remove the 'hidden' class to display the comment form
             commentForm.classList.toggle('hidden');
-            // Hide the "Comment" text after clicking it
-            commentLink.classList.add('hidden');
         });
     }
 
@@ -45,11 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                commentInput.value = '';
-                // Hide the comment form after successful submission
-                commentForm.classList.add('hidden');
+                window.location.reload();
             } else {
-                alert('That did not work');
+                alert('Failed to add comment');
             }
         } catch (err) {
             console.error(err);

@@ -48,4 +48,23 @@ router.get('/:blogpostId/comments', async (req, res) => {
     }
 });
 
+router.put('/:blogpostId', withAuth, async (req, res) => {
+    try {
+        const updatedPost = await BlogPost.update(req.body, {
+            where: {
+                id: req.params.blogpostId,
+                user_id: req.session.user_id,
+            },
+        });
+
+        if (!updatedPost) {
+            return res.status(404).json({ message: 'Post not found or you are not authorized to update this post.' });
+        }
+        
+        res.status(200).json(updatedPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

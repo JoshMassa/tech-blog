@@ -80,7 +80,8 @@ li {
 
 #loginHeader,
 #signupHeader,
-#newPostHeader {
+#newPostHeader,
+#updatePostHeader {
     display: flex;
     min-height: 30px;
     background-color: black;
@@ -113,7 +114,8 @@ li {
 #login-form-button,
 #signup-form-button,
 #create-post-button,
-#comment-form-button {
+#comment-form-button,
+#update-post-button {
     width: 95%;
     margin: 10px 0px 5px 0px;
 }
@@ -146,7 +148,8 @@ li {
     font-weight: 600;
 }
 
-#form-adjust {
+#form-adjust-update,
+#form-adjust-create {
     margin-top: 5%;
 }
 
@@ -202,16 +205,25 @@ textarea {
     background-color: black;
 }
 
-#comment-link {
-    display: flex;
-    justify-content: end;
-    margin-right: 10px;
+#comment-link,
+#update-post-link {
     text-decoration: none;
     color: black;
     font-size: 12px;
     font-weight: 600;
 }
 
-#comment-link:hover {
+#comment-link:hover,
+#update-post-link:hover {
     color: blue;
+}
+
+#options-container {
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
+
+#update-post-link {
+    padding-right: 15px;
 }

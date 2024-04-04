@@ -26,9 +26,9 @@ document.querySelector('.new-post-form').addEventListener('click', newPostFormHa
 // Hide "create new post" container until user clicks on the "New Post" button
 document.addEventListener('DOMContentLoaded', () => {
     const newPostBtn = document.getElementById('newPostBtn');
-    const formAdjust = document.getElementById('form-adjust');
+    const formAdjustCreate = document.getElementById('form-adjust-create');
 
     newPostBtn.addEventListener('click', () => {
-        formAdjust.classList.remove('hidden');
+        formAdjustCreate.classList.remove('hidden');
     });
 });
