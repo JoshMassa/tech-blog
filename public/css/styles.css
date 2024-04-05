@@ -206,11 +206,13 @@ textarea {
 }
 
 #comment-link,
-#update-post-link {
+#update-post-link,
+#delete-post-link {
     text-decoration: none;
     color: black;
     font-size: 12px;
     font-weight: 600;
+    margin-right: 10px;
 }
 
 #comment-link:hover,
@@ -222,8 +224,4 @@ textarea {
     display: flex;
     justify-content: end;
     gap: 15px;
-}
-
-#update-post-link {
-    padding-right: 15px;
 }

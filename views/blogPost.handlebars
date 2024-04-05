@@ -6,7 +6,10 @@
     <p id="content">{{content}}</p>
     <div id="options-container">
     <a href="#" id="comment-link">Comment</a>
+    {{#if isPostAuthor}}
     <a href="/blogPost/{{id}}" id="update-post-link">Update Post</a>
+    <a href="/blogPost/{{id}}" id="delete-post-link">Delete Post</a>
+    {{/if}}
     </div>
 </div>
 {{#if comments}}
@@ -55,3 +58,4 @@
 
 <script src="/js/comment.js"></script>
 <script src="/js/updatePost.js"></script>
+<script src="/js/deletePost.js"></script>

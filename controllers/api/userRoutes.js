@@ -22,6 +22,12 @@ router.post('/', async (req, res) => {
                 // Return to  avoid executing other error handling logic
                 return;
             }
+            // Check if the error is due to a unique contraint violation on the username
+            if (error.name === 'SequelizeUniqueConstraintError') {
+                if (error.fields.hasOwnProperty('username')) {
+                    return res.status(400).json({ message: 'Username is already in use.' })
+                }
+            }
             // Check if the error is related to the password length validation rule
             const passwordError = error.errors.find(err => err.path === 'password');
             if (passwordError && passwordError.validatorKey === 'len') {

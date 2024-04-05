@@ -21,7 +21,7 @@ const updatePostFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            // window.location.reload();
+            window.location.reload();
         } else {
             const data = await response.json();
             throw new Error(data.message || 'Failed to update post');

@@ -57,6 +57,7 @@ router.get('/blogpost/:id', async (req, res) => {
         // Pass serialized data and session flag into template
         res.render('blogPost', {
             ...blogPost,
+            isPostAuthor: req.session.user_id === blogPost.user_id,
             specificPost: true,
             logged_in: req.session.logged_in
         });
