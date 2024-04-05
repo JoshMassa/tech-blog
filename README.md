@@ -13,6 +13,10 @@ A full-stack blog application that allows users to view posts and comments. If a
 To install this project, clone the repository to your local machine.
 ## Usage
 Once installed, open your console and run the command "npm i". Open your mysql shell and run the command "SOURCE db/schema.sql". Exit the mysql shell and in your terminal run the command "npm run seed" followed by "npm run dev". After this, you can navigate to the URL http://localhost:3001 to view the project.
+
+The app should resemble the following image:
+
+![Tech Blog App](./public/images/tech-blog-ss.png)
 ## Contributing
 1. Fork the repository 
  2. Create a new branch for your contribution 
