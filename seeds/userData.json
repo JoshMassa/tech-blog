@@ -3,5 +3,10 @@
         "username": "johndoe",
         "email": "johndoe@gmail.com",
         "password": "password12345"
+    },
+    {
+        "username": "admin",
+        "email": "admin@admin.com",
+        "password": "admin2024"
     }
 ]

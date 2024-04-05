@@ -48,15 +48,19 @@ router.get('/:blogpostId/comments', async (req, res) => {
     }
 });
 
-router.put('/:blogpostId', withAuth, async (req, res) => {
+router.put('/:blogpostId', async (req, res) => {
     try {
-        const updatedPost = await BlogPost.update(req.body, {
-            where: {
-                id: req.params.blogpostId,
-                user_id: req.session.user_id,
-            },
-        });
-
+        console.log('req.body', req.body)
+        console.log('req.session', req.session)
+        console.log('req.params.blogpostId', req.params.blogpostId)
+        const updatedPost = await BlogPost.update(req.body, 
+            {
+                where: {
+                    id: req.params.blogpostId,
+                },
+            }
+        );
+            console.log('updated post', updatedPost)
         if (!updatedPost) {
             return res.status(404).json({ message: 'Post not found or you are not authorized to update this post.' });
         }

@@ -6,7 +6,7 @@
     <p id="content">{{content}}</p>
     <div id="options-container">
     <a href="#" id="comment-link">Comment</a>
-    <a href="#" id="update-post-link">Update Post</a>
+    <a href="/blogPost/{{id}}" id="update-post-link">Update Post</a>
     </div>
 </div>
 {{#if comments}}
@@ -33,4 +33,25 @@
     </form>
 {{/if}}
 
+{{!-- Form to update a post --}}
+<div id="form-adjust-update" class="container hidden">
+    <div class="row">
+        <h2 id="updatePostHeader">Update Post</h2>
+        <form class="form update-post-form">
+            <div class="form-group">
+                <label for="post-title">Title</label>
+                <input class="form-input" type="text" id="post-title" name="title" value="{{title}}" />
+            </div>
+            <div class="form-group">
+                <label for="updated-post-content">Content</label>
+                <textarea class="form-input" id="updated-post-content" name="content">{{content}}</textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="update-post-button" class="btn btn-dark">Update Post</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <script src="/js/comment.js"></script>
+<script src="/js/updatePost.js"></script>

@@ -19,28 +19,6 @@
     {{/each}}
 </div>
 
-{{!-- Form to update a post --}}
-<div id="form-adjust-update" class="container hidden">
-    <div class="row">
-        <h2 id="updatePostHeader">Update Post</h2>
-        <form class="form update-post-form" action="/api/posts/{{postId}}" method="POST">
-            {{!-- Method override to send PUT request --}}
-            <input type="hidden" name="_method" value="PUT">
-            <div class="form-group">
-                <label for="post-title">Title</label>
-                <input class="form-input" type="text" id="post-title" name="title" value="{{title}}" />
-            </div>
-            <div class="form-group">
-                <label for="updated-post-content">Content</label>
-                <textarea class="form-input" id="updated-post-content" name="content">{{content}}</textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" id="update-post-button" class="btn btn-dark">Update Post</button>
-            </div>
-        </form>
-    </div>
-</div>
-
 {{!-- Form to create a new post --}}
 <div id="form-adjust-create" class="container hidden">
     <div class="row">
@@ -66,4 +44,3 @@
 </div>
 
 <script src="/js/post.js"></script>
-<script src="/js/updatePost.js"></script>
