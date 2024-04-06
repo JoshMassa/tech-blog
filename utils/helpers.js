@@ -12,4 +12,21 @@ function format_time(timestamp) {
     return date.toLocaleTimeString('en-US');
 };
 
-module.exports = { format_date, format_time };
+function validateTitle(titleInput) {
+    const postTitleContent = titleInput.value.trim();
+    const postTitleCharLimit = 30;
+
+    if (!postTitleContent) {
+        alert('Error: Title cannot be empty.');
+        return false;
+    }
+
+    if (postTitleContent.length > postTitleCharLimit) {
+        alert('Error: Title cannot exceed ' + postTitleCharLimit + ' characters.');
+        return false;
+    }
+
+    return true;
+}
+
+module.exports = { format_date, format_time, validateTitle };

@@ -13,7 +13,8 @@
         <header>
             <nav id="navbar">
                 <ul>
-                    <li><a class="navbarEl" href="/">Home</a></li>
+                    <p id="title">{{this.title}}</p>
+                    <li id="home"><a class="navbarEl" href="/">Home</a></li>
                     <li><a class="navbarEl" href="/dashboard">Dashboard</a></li>
                     {{!-- Conditionally renders login or logout links based on user's current login status --}}
                     {{#if logged_in}}
@@ -21,7 +22,6 @@
                     {{else}}
                         <a class="navbarEl" id="login" href="/login">Login</a>
                     {{/if}}
-                    <p id="title">{{this.title}}</p>
                 </ul>
             </nav>
         </header>
