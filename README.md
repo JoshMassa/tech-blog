@@ -12,7 +12,9 @@ A full-stack blog application that allows users to view posts and comments. If a
 ## Installation
 To install this project, clone the repository to your local machine.
 ## Usage
-Once installed, open your console and run the command "npm i". Open your mysql shell and run the command "SOURCE db/schema.sql". Exit the mysql shell and in your terminal run the command "npm run seed" followed by "npm run dev". After this, you can navigate to the URL http://localhost:3001 to view the project.
+As a developer - Install the project, open your console, and run the command "npm i". Open your mysql shell and run the command "SOURCE db/schema.sql". Exit the mysql shell and in your terminal run the command "npm run seed" followed by "npm run dev". After this, you can click [here](http://localhost:3001) to view the project.
+
+Alternatively, to interact with the app as a user, you can visit [this Link](https://jm-tech-blog-fe718f2a2321.herokuapp.com/).
 
 The app should resemble the following image:
 
